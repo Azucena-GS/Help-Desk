@@ -8,4 +8,4 @@
     <script src="../public/sweetalert2/sweetalert2@11.js"></script>
 
 </body>
-</html>
+</html> 
