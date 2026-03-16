@@ -32,7 +32,6 @@ function obtenerDatosUsuario(idUsuario){
         url: "../procesos/usuarios/crud/obtenerDatosUsuario.php",
         success:function(respuesta){
            respuesta = jQuery.parseJSON(respuesta);
-            //console.log(respuesta);
             $('#idUsuario').val(respuesta['idUsuario']);
             $('#paternou').val(respuesta['paterno']);
             $('#maternou').val(respuesta['materno']);
@@ -55,7 +54,6 @@ function actualizarUsuario(){
         data: $('#frmActualizarUsuario').serialize(),
         url: "../procesos/usuarios/crud/actualizarUsuario.php",
         success:function(respuesta){
-            //console.log(respuesta);
             respuesta=respuesta.trim();
             if (respuesta==1){
                 $('#tablaUsuariosLoad').load("usuarios/tablaUsuarios.php");
