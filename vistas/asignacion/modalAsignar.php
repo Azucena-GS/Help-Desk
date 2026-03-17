@@ -1,4 +1,5 @@
-<form id="frmAsigaEquipo" method="POST" onsubmit="return asignarEquipo()">
+<!-- Modal -->
+<form id="frmAsignaEquipo" method="POST" onsubmit="return asignarEquipo()">
   <div class="modal fade" id="modalAsignarEquipo" data-backdrop="static" data-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
     <div class="modal-dialog modal-lg">
         <div class="modal-content">
@@ -37,10 +38,7 @@
               <div class="col-sm-6">
                 <label>Tipo de equipo</label>
                 <?php  
-                  $sql="SELECT id_equipo,
-                              nombre
-                        FROM
-                              t_cat_equipo ORDER BY nombre";
+                  $sql="SELECT id_equipo, nombre FROM t_cat_equipo ORDER BY nombre";
                   $respuesta=mysqli_query($conexion, $sql);            
                 ?>
                 <select name="idEquipo" id="idEquipo" class="form-control" required>
@@ -54,15 +52,15 @@
 
             <div class="row"> 
               <div class="col-sm-4">
-                <label for="">Marca</label>
+                <label for="marca">Marca</label>
                 <input type="text" name="marca" id="marca" class="form-control">
               </div>
               <div class="col-sm-4">
-                <label for="">Modelo</label>
+                <label for="modelo">Modelo</label>
                 <input type="text" name="modelo" id="modelo" class="form-control">
               </div>
               <div class="col-sm-4">
-                <label for="">Color</label>
+                <label for="color">Color</label>
                 <input type="text" name="color" id="color" class="form-control">
               </div>
             </div>
