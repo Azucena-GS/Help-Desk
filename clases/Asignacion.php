@@ -4,6 +4,7 @@
     class  Asignacion extends Conexion{
         public function agregarAsignacion($datos){
             $conexion = Conexion::conectar();
+             
             $sql=   "INSERT INTO t_asignacion (id_persona,
                                 id_equipo,
                                 marca,
@@ -13,7 +14,7 @@
                                 memoria,
                                 disco_duro,
                                 procesador)
-                    VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?) ";
+                     VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?) ";
             $query=$conexion->prepare($sql);
             $query->bind_param('iisssssss', $datos['idPersona'],
                                             $datos['idEquipo'],
