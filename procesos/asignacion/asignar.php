@@ -1,6 +1,4 @@
 <?php
-        //print_r($_POST);
-
     $datos=array(
         'idPersona' => $_POST['idPersona'],
         'idEquipo' => $_POST['idEquipo'],
