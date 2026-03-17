@@ -1,5 +1,5 @@
 <?php
-    include_once '../../clases/Conexion.php';   
+    include "../../clases/Conexion.php";   
     $con = new Conexion();
     $conexion = $con->conectar();
     $sql =  "SELECT 
@@ -26,12 +26,12 @@
                     INNER JOIN
                 t_cat_equipo AS equipo ON asignacion.id_equipo = equipo.id_equipo";
 
-    $respuesta = mysqli_query($conexion, $sql);
+               $respuesta = mysqli_query($conexion, $sql);
 
 ?>
 
 <table class="table table-sm dt-responsive nowrap"
-        id="tablaAsignacionDataTable" style="width:100%" >
+       style="width:100%"  id="tablaAsignacionDataTable" >
     <thead>
         <th>Persona</th>
         <th>Equipo</th>
@@ -45,9 +45,7 @@
         <th>Eliminar</th>
     </thead>
     <tbody>
-         <?php 
-            while($mostrar=mysqli_fetch_array($respuesta)){  
-        ?>  
+         <?php while($mostrar=mysqli_fetch_array($respuesta)){ ?>  
         <tr>
             <td><?php echo $mostrar['nombrePersona']?></td>
             <td><?php echo $mostrar['nombreEquipo']?></td>
@@ -59,8 +57,8 @@
             <td><?php echo $mostrar['discoDuro']?></td>
             <td><?php echo $mostrar['procesador']?></td>
             <td>
-                <button class="btn btn-danger btn-sm"
-                onclick="eliminarAsignacion(<?php echo $mostrar['idAsignacion'] ?>)">
+                <button class="btn btn-danger btn-sm" 
+                    onclick="eliminarAsignacion(<?php echo $mostrar['idAsignacion'] ?>)">
                     Eliminar
                 </button>
             </td>
