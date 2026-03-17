@@ -6,16 +6,15 @@ $(document).ready(function(){
 function asignarEquipo(){
     $.ajax({
         type: "POST",
-        data: $('#frmAsigaEquipo').serialize(),
+        data: $('#frmAsignaEquipo').serialize(),
         url:"../procesos/asignacion/asignar.php",
         success:function(respuesta){
-            //console.log(respuesta);
             respuesta=respuesta.trim();
 
-            if(respuesta==1){
-                $('#frmAsigaEquipo')[0].reset();
-                $('#tablaAsignacionLoad').load("asignacion/tablaAsignacion.php");
-                Swal.fire(":)","Asignado con exito","success");
+            if(respuesta== 1) {
+                $('#frmAsignaEquipo')[0].reset();
+                 $('#tablaAsignacionLoad').load("asignacion/tablaAsignacion.php");    
+                Swal.fire(":D","Asignado con exito!","success");
             }else{
                 Swal.fire(":(","No se pudo asignar,fallo" + respuesta ,"error");
             }
@@ -27,7 +26,7 @@ function asignarEquipo(){
 
 function eliminarAsignacion(idAsignacion){
         Swal.fire({
-        title: "Estas seguro de eliminar este registro?",
+        title: 'Estas seguro de eliminar este registro?',
         text: "Una vez eliminado no se podra recuperar!",
         icon: "warning",
         showCancelButton: true,
@@ -45,7 +44,7 @@ function eliminarAsignacion(idAsignacion){
                         if(respuesta==1){
                             
                             $('#tablaAsignacionLoad').load("asignacion/tablaAsignacion.php");
-                            Swal.fire(":)","Eliminado con exito","success");
+                            Swal.fire(":D","Eliminado con exito","success");
                         }else{
                             Swal.fire(":(","Fallo al eliminar" + respuesta ,"error");
                         }    
