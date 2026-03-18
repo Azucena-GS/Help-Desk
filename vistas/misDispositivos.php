@@ -1,4 +1,6 @@
-<?php include_once 'header.php';
+<?php 
+include 'header.php';
+
   if(isset($_SESSION['usuario']) && $_SESSION['usuario']['rol']== 1){  
       include '../clases/Asignacion.php';
       $con= new Conexion();
@@ -13,7 +15,6 @@
                   AND usuario.id_usuario = '$idUsuario'";
       $respuesta = mysqli_query($conexion, $sql);
       $idPersona=mysqli_fetch_array($respuesta)[0];
-
       $sql ="SELECT 
                 persona.id_persona AS idPersona,
                 CONCAT(persona.paterno,
@@ -44,23 +45,24 @@
 
  ?>
 
-
+<!-- Page Content -->
 <div class="container">
   <div class="card border-0 shadow my-5">
     <div class="card-body p-5">
       <h1 class="fw-light">Mis Dispositivos</h1>
       <p class="lead">
-        
           <div class="row">
-            <?php while($mostrar=mysqli_fetch_array($respuesta)){?>
-
+            <?php while($mostrar=mysqli_fetch_array($respuesta)) { ?>
             <div class="col-sm-4">
-              
-                <div class="card bg-light mb-3" style="max-width: 18rem;">
-                  <div class="card-header"><?php echo $mostrar['nombreEquipo']?></div>
+                <div class="card ">
                     <div class="card-body">
-    
-                      <p><span class="<?php echo $mostrar['imagen'];?>"></span><?php echo $mostrar['descripcion'] ?></p>
+                      <h4>
+                      <span class="<?php echo $mostrar['imagen'];?>"></span>
+                      <?php echo $mostrar['nombreEquipo']?>
+                      </h4>
+                      <p>
+                        <?php echo $mostrar['descripcion'] ?>
+                      </p>
                       <ul>
                         <li>Marca: <?php echo $mostrar['marca']?></li>
                         <li>Modelo: <?php echo $mostrar['modelo']?></li>
@@ -84,7 +86,8 @@
 
  
 
-<?php include_once 'footer.php';
+<?php 
+include 'footer.php';
    }else{
       header("location:../index.html");
    }
