@@ -1,4 +1,5 @@
-<form id="frmAgregarSolucionReporte" onsubmit="return agregarSolucionReporte()" method="post">
+<!-- Modal -->
+<form id="frmAgregarSolucionReporte" method="POST" onsubmit="return agregarSolucionReporte()" >
     <div class="modal fade" id="modalAgregarSolucionReporte" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog">
             <div class="modal-content">
@@ -9,7 +10,7 @@
                     </button>
                 </div>
                 <div class="modal-body">
-                    <input type="text" name="idReporte" id="idReporte" hidden>
+                    <input type="text" id="idReporte" name="idReporte" hidden>
                     <label for="solucion">Descripcion de la solución</label>
                     <textarea name="solucion" id="solucion" class="form-control" required></textarea>
                     <label for="estatus">Estatus</label>
