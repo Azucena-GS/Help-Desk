@@ -3,6 +3,7 @@ $(document).ready(function(){
 });
 
 function agregarNuevoReporte(){
+    
     $.ajax({
         type:"POST",
         data:$('#frmNuevoReporte').serialize(),
@@ -12,7 +13,7 @@ function agregarNuevoReporte(){
             if (respuesta==1){
                 $('#tablaReporteClienteLoad').load("reportesClientes/tablaReporteCliente.php");
                 $('#frmNuevoReporte')[0].reset();
-                Swal.fire(":)","Agregado con exito", "success");
+                Swal.fire(":D","Agregado con exito", "success");
             }else{
                 Swal.fire("Error al agregar "+ respuesta, "error");
             }
@@ -40,9 +41,8 @@ function eliminarReporteCliente(idReporte){
                     url:"../procesos/reportesCliente/eliminarReporteCliente.php",
                     success:function (respuesta) {
                         if(respuesta==1){
-                            
                             $('#tablaReporteClienteLoad').load("reportesClientes/tablaReporteCliente.php");
-                            Swal.fire(":)","Eliminado con exito","success");
+                            Swal.fire(":D","Eliminado con exito","success");
                         }else{
                             Swal.fire(":(","Fallo al eliminar" + respuesta ,"error");
                         }    
