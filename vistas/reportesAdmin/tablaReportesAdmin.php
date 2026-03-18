@@ -1,7 +1,7 @@
 
 <?php
     session_start();
-    include_once '../../clases/Conexion.php';   
+    include '../../clases/Conexion.php';   
     $con = new Conexion();
     $conexion = $con->conectar();
     $idUsuario=$_SESSION['usuario']['id'];
@@ -28,9 +28,9 @@
             t_persona AS persona ON usuario.id_persona = persona.id_persona
                 INNER JOIN
             t_cat_equipo AS equipo ON reporte.id_equipo = equipo.id_equipo";
+
      $respuesta = mysqli_query($conexion, $sql);
 ?>
-
 <table class="table table-sm dt-responsive nowrap  table-bordered"
         id="tablaReporteAdminDataTable"  style="width:100%">
     <thead>
@@ -56,16 +56,12 @@
             <td>
                 <?php
                 $estatus= $mostrar['estatus'];
-                $cadenaestatus='<div class="alert alert-success" role="alert">
-                                Abierto
-                                </div>';
+                $cadenaEstatus='<span class="badge badge-success"> Abierto </span>';
 
                 if($estatus==0){
-                    $cadenaestatus='<div class="alert alert-danger" role="alert">
-                                    Cerrado
-                                    </div>';
+                    $cadenaEstatus='<span class="badge badge-danger"> Cerrado </span>';
                 }
-                echo $cadenaestatus;
+                echo $cadenaEstatus;
                 ?>
             </td>
             <td>
