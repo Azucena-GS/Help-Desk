@@ -11,8 +11,7 @@
     <link rel="stylesheet" href="../public/css/plantilla.css">
     <link rel="stylesheet" href="../public/datatable/dataTables.bootstrap4.min.css">
     <link rel="stylesheet" href="../public/datatable/responsive.bootstrap4.css">
-    <!-- <link rel="stylesheet" href="../public/fontawesome/css/all.css"> -->
-    
+    <link rel="stylesheet" href="../public/fontawesome/css/all.css">    
     
     <title>Help-Desk</title>
 </head>
@@ -38,7 +37,7 @@
           <a class="nav-link" href="misReportes.php">Reportes Soporte</a>
         </li>
         <?php } else if($_SESSION['usuario']['rol']== 2) { ?>
-        <!-- vistas del admin -->
+        <!-- Estas son las vistas del administrador -->
         <li class="nav-item">
           <a class="nav-link" href="usuarios.php">Usuarios</a>
         </li>
