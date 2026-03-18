@@ -1,5 +1,5 @@
-<form method="POST" id="frmNuevoReporte" onsubmit="return agregarNuevoReporte()">
-
+<form id="frmNuevoReporte"  method="POST" onsubmit="return agregarNuevoReporte()">
+<!-- Modal --> 
   <div class="modal fade" id="modalCrearReporte" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog">
       <div class="modal-content">
@@ -15,7 +15,9 @@
           <?php
             $idUsuario=$_SESSION['usuario']['id'];
             $sql="SELECT 
-                      asignacion.id_asignacion AS idAsignacion, equipo.id_equipo AS idEquipo, equipo.nombre AS nombreEquipo
+                      asignacion.id_asignacion AS idAsignacion, 
+                      equipo.id_equipo AS idEquipo, 
+                      equipo.nombre AS nombreEquipo
                   FROM
                       t_asignacion AS asignacion
                           INNER JOIN
@@ -29,11 +31,8 @@
                               id_usuario = '$idUsuario')";
             $respuesta=mysqli_query($conexion,$sql);                
           ?>
-
-        
           <select name="idEquipo" id="idEquipo" class="form-control" required>
             <option value="">Seleccione un dispositivo</option>
-
             <?php while($mostrar=mysqli_fetch_array($respuesta)){?>
               <option value="<?php echo $mostrar['idEquipo']; ?>">
                   <?php echo $mostrar['nombreEquipo']; ?>
@@ -41,8 +40,6 @@
             <?php }?>
           </select>
 
-
-          
           <label for="problema">Describe tu problema</label>
           <textarea name="problema" id="problema" class="form-control" required></textarea>
           
@@ -55,5 +52,5 @@
     </div>
   </div>
 </form>
-<!-- Modal -->
+
 
