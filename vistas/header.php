@@ -19,7 +19,8 @@
 
 <nav class="navbar navbar-expand-lg navbar-light bg-light static-top mb-5 shadow">
   <div class="container">
-    <a class="navbar-brand" href="inicio.php">Help - Desk</a>
+    <a class="navbar-brand" href="inicio.php">
+      <img src="../public/img/logoicono.ico" width="30%"></a>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
@@ -31,34 +32,42 @@
         </li>
         <?php if($_SESSION['usuario']['rol']==1){ ?>
         <li class="nav-item">
-          <a class="nav-link" href="misDispositivos.php">Mis Dispositivos</a>
+          <a class="nav-link" href="misDispositivos.php">
+            <span class="fas fa-microchip"></span>Mis Dispositivos</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="misReportes.php">Reportes Soporte</a>
+          <a class="nav-link" href="misReportes.php">
+            <span class="fas fa-file-alt"></span>Reportes Soporte</a>
         </li>
         <?php } else if($_SESSION['usuario']['rol']== 2) { ?>
         <!-- Estas son las vistas del administrador -->
         <li class="nav-item">
-          <a class="nav-link" href="usuarios.php">Usuarios</a>
+          <a class="nav-link" href="usuarios.php">
+            <span class="fas fa-users-cog"></span>Usuarios</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="asignacion.php">Asignacion</a>
+          <a class="nav-link" href="asignacion.php">
+            <span class="fas fa-address-book"></span>Asignacion</a>
         </li>
          <li class="nav-item">
-          <a class="nav-link" href="reportes.php">Reportes</a>
+          <a class="nav-link" href="reportes.php">
+            <span class="fas fa-file-alt"></span>Reportes</a>
         </li>
         <?php } ?>
         <li class="nav-item dropdown">
-            <a style="color:red" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-expanded="false">Usuario: <?php echo $_SESSION['usuario']['nombre']?></a>
+            <a style="color:red" class="nav-link dropdown-toggle" href="#" role="button"
+             data-toggle="dropdown" aria-expanded="false">
+             <span class="fas fa-user-ninja"></span>Usuario: <?php echo $_SESSION['usuario']['nombre']?></a>
             <div class="dropdown-menu">
                 <a 
                   class="dropdown-item" href="#" 
                   data-toggle="modal" data-target="#modalActualizarDatosPersonales"
                   onclick="obtenerDatosPersonalesInicio('<?php  echo $_SESSION['usuario']['id'];?>')">
-                  Editar Datos
+                  <span class="fas fa-user-edit"></span>Editar Datos
                   </a>
                 <div class="dropdown-divider"></div>
-                 <a class="dropdown-item" href="../procesos/usuarios/login/salir.php">Salir</a>      
+                 <a class="dropdown-item" href="../procesos/usuarios/login/salir.php">
+                  <span class="fas fa-sign-out-alt"></span>Salir</a>      
             </div>
         </li>
       </ul>
