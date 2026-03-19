@@ -24,7 +24,7 @@ function eliminarReporteAdmin(idReporte){
                         if(respuesta==1){
                             
                             $('#tablaReporteClienteLoad').load("reportesClientes/tablaReporteCliente.php");
-                            Swal.fire(":)","Eliminado con exito","success");
+                            Swal.fire(":D","Eliminado con exito","success");
                         }else{
                             Swal.fire(":(","Fallo al eliminar" + respuesta ,"error");
                         }    
@@ -38,7 +38,7 @@ function eliminarReporteAdmin(idReporte){
 function obtenerDatosSolucion(idReporte){
     $.ajax({
         type:"POST",
-        data:'idReporte=' + idReporte,
+        data:"idReporte=" + idReporte,
         url: "../procesos/reportesAdmin/obtenerSolucion.php",
         success: function(respuesta){
             respuesta = jQuery.parseJSON(respuesta);
@@ -57,7 +57,7 @@ function agregarSolucionReporte(){
         success :function(respuesta){
             respuesta=respuesta.trim();
             if(respuesta==1){
-                Swal.fire(":)","Agregado con exito","success");
+                Swal.fire(":D","Agregado con exito","success");
                 $('#tablaReporteAdminLoad').load('reportesAdmin/tablaReportesAdmin.php');
             }else{
                 Swal.fire(":(","Fallo" + respuesta,"error");
