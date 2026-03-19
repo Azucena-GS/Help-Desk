@@ -51,7 +51,12 @@
         <li class="nav-item dropdown">
             <a style="color:red" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-expanded="false">Usuario: <?php echo $_SESSION['usuario']['nombre']?></a>
             <div class="dropdown-menu">
-                <a class="dropdown-item" href="#">Editar Datos</a>
+                <a 
+                  class="dropdown-item" href="#" 
+                  data-toggle="modal" data-target="#modalActualizarDatosPersonales"
+                  onclick="obtenerDatosPersonalesInicio('<?php  echo $_SESSION['usuario']['id'];?>')">
+                  Editar Datos
+                  </a>
                 <div class="dropdown-divider"></div>
                  <a class="dropdown-item" href="../procesos/usuarios/login/salir.php">Salir</a>      
             </div>
@@ -60,3 +65,5 @@
     </div>
   </div>
 </nav>
+
+<?php include "inicio/modalActualizarDatosPersonales.php"; ?>
