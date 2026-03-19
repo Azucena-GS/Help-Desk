@@ -1,5 +1,5 @@
 <?php
-    include_once '../../clases/Conexion.php';
+    include '../../clases/Conexion.php';
     
     $con = new Conexion();
     $conexion = $con->conectar();
@@ -64,7 +64,9 @@
                 <td><?php echo $mostrar['sexo']; ?></td>
 
                 <td>
-                    <button class="btn btn-success btn-sm">
+                    <button class="btn btn-warning btn-sm" 
+                        onclick="agregarIdUsuarioReset(<?php echo $mostrar['idUsuario'] ?>)"
+                        data-toggle="modal" data-target="#modalResetPassword">
                         Cambiar Password
                     </button>
                 </td>

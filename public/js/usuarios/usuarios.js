@@ -1,4 +1,3 @@
-
 $(document).ready(function(){
     $('#tablaUsuariosLoad').load("usuarios/tablaUsuarios.php");
 
@@ -32,6 +31,7 @@ function obtenerDatosUsuario(idUsuario){
         url: "../procesos/usuarios/crud/obtenerDatosUsuario.php",
         success:function(respuesta){
            respuesta = jQuery.parseJSON(respuesta);
+            //console.log(respuesta);
             $('#idUsuario').val(respuesta['idUsuario']);
             $('#paternou').val(respuesta['paterno']);
             $('#maternou').val(respuesta['materno']);
@@ -54,10 +54,11 @@ function actualizarUsuario(){
         data: $('#frmActualizarUsuario').serialize(),
         url: "../procesos/usuarios/crud/actualizarUsuario.php",
         success:function(respuesta){
+            //console.log(respuesta);
             respuesta=respuesta.trim();
             if (respuesta==1){
                 $('#tablaUsuariosLoad').load("usuarios/tablaUsuarios.php");
-                Swal.fire(":)","Actualizado con exito", ":D");
+                Swal.fire(":D","Actualizado con exito", ":D");
                 $('#modalActualizarUsuarios').modal('hide');
 
             }else{
@@ -66,4 +67,31 @@ function actualizarUsuario(){
         }     
     });
    return false;
+}
+function agregarIdUsuarioReset(idUsuario){
+    $('#idUsuarioReset').val(idUsuario);
+}
+
+function resetPassword(){
+    $.ajax({
+        type:"POST",
+    
+        data:$('#frmActualizaPassword').serialize(),
+        url:"../procesos/usuarios/extras/resetPassword.php",
+        success: function (respuesta){
+
+            respuesta=respuesta.trim();
+            if (respuesta==1){
+    
+                Swal.fire(":D","Password actualizado con exito", "success");
+                $('#modalResetPassword').modal('hide');
+
+            }else{
+                Swal.fire("Error al actualizar password "+ respuesta, "error");
+            }
+
+        }
+
+    });
+    return false;
 }
