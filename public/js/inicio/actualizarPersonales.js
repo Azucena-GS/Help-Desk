@@ -6,13 +6,11 @@ function actualizarDatosPersonales(){
         url: "../procesos/inicio/actualizarPersonales.php",
         success: function(respuesta){
             respuesta=respuesta.trim();
-
             if(respuesta==1){
-                
-                Swal.fire(":D","Actualizo sus datos con exito","success");
+                Swal.fire(":D","Actualizado con exito!","success");
                 location.reload();
             }else{
-                Swal.fire(":(","No se pudo realizar la actualizacion, error:" + respuesta ,"error");
+                Swal.fire(":(","Fallo al actualizar!" + respuesta ,"error");
             }
         }
     });
@@ -34,7 +32,7 @@ function obtenerDatosPersonalesInicio(idUsuario){
             $('#nombreInicio').val(respuesta['nombrePersona']);
             $('#telefonoInicio').val(respuesta['telefono']);
             $('#correoInicio').val(respuesta['correo']);
-            $('#fechaInicio').val(respuesta['fechaNacimiento']);
+            $('#fechaNacInicio').val(respuesta['fechaNacimiento']);
     
 
         }
