@@ -31,8 +31,8 @@ class Reportes extends Conexion {
     public function obtenerSolucion($idReporte){
         $conexion = Conexion::conectar();
         $sql = "SELECT solucion_problema, estatus 
-                    FROM t_reportes 
-                    WHERE id_reporte = '$idReporte' ";
+                FROM t_reportes 
+                WHERE id_reporte = '$idReporte' ";
 
         $respuesta = mysqli_query($conexion, $sql);
         $reporte = mysqli_fetch_array($respuesta);
@@ -49,14 +49,14 @@ class Reportes extends Conexion {
         $conexion = Conexion::conectar();
         $sql="UPDATE  t_reportes 
                 SET id_usuario_tecnico = ?,
-                        solucion_problema =  ?,
-                        estatus = ?
+                    solucion_problema =  ?,
+                    estatus = ?
                 WHERE id_reporte = ? ";
         $query = $conexion->prepare($sql);        
         $query->bind_param('isii', $datos['idUsuario'],
                                     $datos['solucion'],
                                     $datos['estatus'],
-                                   $datos['idReporte'] );
+                                    $datos['idReporte'] );
         $respuesta = $query->execute();
         $query->close();
         return $respuesta;                           
