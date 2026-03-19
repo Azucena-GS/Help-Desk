@@ -95,7 +95,11 @@
 
 <script>
     $(document).ready(function(){
-        $('#tablaReporteAdminDataTable').DataTable();
+        $('#tablaReporteAdminDataTable').DataTable({
+            language : {
+                url : "../public/datatable/es_es.json"
+            }
+        });
     });
 
 </script>

@@ -103,7 +103,11 @@
 </table>
 <script>
     $(document).ready(function(){
-        $('#tablaUsuariosDataTable').DataTable();
+        $('#tablaUsuariosDataTable').DataTable({
+            language : {
+                url : "../public/datatable/es_es.json"
+            }
+        });
     });
 
 </script>

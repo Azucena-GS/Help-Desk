@@ -71,7 +71,11 @@
 
 <script>
     $(document).ready(function(){
-        $('#tablaAsignacionDataTable').DataTable();
+        $('#tablaAsignacionDataTable').DataTable({
+            language : {
+                url : "../public/datatable/es_es.json"
+            }
+        });
     });
 
 </script>
